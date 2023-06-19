@@ -17,11 +17,11 @@
 package org.acme.timer.log;
 
 import io.quarkus.runtime.annotations.RegisterForReflection;
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-@ApplicationScoped
+@RequestScoped
 @Named("greeting")
 @RegisterForReflection(fields = false)
 public class GreetingBean {

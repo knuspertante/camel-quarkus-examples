@@ -17,12 +17,14 @@
 package org.acme.timer.log;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.control.ActivateRequestContext;
 import org.apache.camel.builder.RouteBuilder;
 
 @ApplicationScoped
 public class TimerRoute extends RouteBuilder {
 
     @Override
+    @ActivateRequestContext
     public void configure() throws Exception {
         from("timer:foo?period={{timer.period}}")
                 .bean("greeting", "greet")
